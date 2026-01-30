@@ -38,3 +38,5 @@ Here is the diagram I made :
 
 ![Wiring_Diagram](./images/Wiring_Diagram.png)
 
+
+### I just dropped the code in the /src folder if someone wants to take a look at it !
