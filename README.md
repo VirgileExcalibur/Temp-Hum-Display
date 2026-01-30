@@ -17,6 +17,7 @@ See those 2 checkmarks I talked about earlier ? They are used for something very
 For the temperature :
 - under 21°C, it shows a freezing icon
 - above 25°C, it shows a fire icon
+
 For the humidity :
 - under 40%, it shows a desert tumbleweed icon
 - above 60%, it shows a raining icon
