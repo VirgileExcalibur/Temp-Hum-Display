@@ -1,8 +1,8 @@
 # ---------- Import Libraries ------------
 import machine
 import time
-#Import display driver
-import ssd1306
+#Import display driver, from https://github.com/stlehmann/micropython-ssd1306
+import ssd1306 
 #Import custom icons library
 import icons
 
