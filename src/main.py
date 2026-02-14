@@ -1,6 +1,10 @@
+# ---------- Import Libraries ------------
 import machine
 import time
+#Import display driver
 import ssd1306
+#Import custom icons library
+import icons
 
 # ---------- AHT10 Driver ------------
 class AHT10:
@@ -39,8 +43,8 @@ class AHT10:
         return h
 
 # ---------- Initialize I2C ----------
-i2c_oled = machine.I2C(0, sda=machine.Pin(0), scl=machine.Pin(1))
-i2c_sensor = machine.I2C(1, sda=machine.Pin(2), scl=machine.Pin(3))
+i2c_oled = machine.I2C(0, sda=machine.Pin(0), scl=machine.Pin(1)) #Pin GP0 and GP1
+i2c_sensor = machine.I2C(1, sda=machine.Pin(2), scl=machine.Pin(3)) #Pin GP2 and GP3
 
 # ---------- Initialize devices ----------
 oled = ssd1306.SSD1306_I2C(128, 32, i2c_oled)
@@ -54,112 +58,6 @@ def draw_icon(oled, icon, x, y):
                 oled.pixel(x + col, y + row, 1)
 epoch = time.time()
 icon_toggle = False
-#Icon library
-'''
-blank_icon = [
-    0b00000000,
-    0b00000000,
-    0b00000000,
-    0b00000000,
-    0b00000000,
-    0b00000000,
-    0b00000000,
-    0b00000000
-]
-'''
-fire1_icon = [
-    0b00010000,
-    0b00010000,
-    0b00011000,
-    0b00011000,
-    0b00111100,
-    0b00111100,
-    0b00011000,
-    0b00000000
-]
-fire2_icon = [
-    0b00000000,
-    0b00000000,
-    0b00011000,
-    0b00111100,
-    0b00111100,
-    0b00011000,
-    0b00000000,
-    0b00000000
-]
-#not a droplet anymore but meh
-'''
-droplet_icon = [
-    0b00010000,
-    0b00010000,
-    0b00011000,
-    0b00011000,
-    0b00111100,
-    0b00111100,
-    0b00011000,
-    0b00000000
-]
-'''
-alright_icon = [
-    0b00000000,
-    0b00000000,
-    0b00000001,
-    0b00000010,
-    0b00000100,
-    0b10001000,
-    0b01010000,
-    0b00100000
-]
-rain1_icon = [
-    0b10000100,
-    0b10100100,
-    0b00100001,
-    0b00001001,
-    0b01000010,
-    0b00001000,
-    0b10101010,
-    0b00101001    
-]
-rain2_icon = [
-    0b10010100,
-    0b10010101,
-    0b00010000,
-    0b01000010,
-    0b10010000,
-    0b10000100,
-    0b00100101,
-    0b00100001    
-]
-ball1_icon = [
-    0b00011000,
-    0b00100000,
-    0b01001100,
-    0b01010010,
-    0b01001010,
-    0b00100010,
-    0b00011100,
-    0b00000000
-]
-ball2_icon = [
-    0b00111000,
-    0b01000100,
-    0b10010010,
-    0b10101010,
-    0b10001011,
-    0b01110001,
-    0b00000000,
-    0b00000000
-]
-ice_icon = [
-    0b10011011,
-    0b00100010,
-    0b10100011,
-    0b10100010,
-    0b10011011,
-    0b00000000,
-    0b00000000,
-    0b00000000
-]
 
 while True:
     temp = sensor.temperature
@@ -168,26 +66,26 @@ while True:
     #Show if the PI has crashed by not moving the icon on the top left anymore
     if temp > 25:
         if icon_toggle:
-            draw_icon(oled, fire1_icon, 0, 0)
+            draw_icon(oled, icons.fire1_icon, 0, 0)
         else:
-            draw_icon(oled, fire2_icon, 0, 0)
+            draw_icon(oled, icons.fire2_icon, 0, 0)
     elif temp < 21:
         #draw toggle freezing icon
-        draw_icon(oled, ice_icon, 0, 0)
+        draw_icon(oled, icons.ice_icon, 0, 0)
     elif 21 < temp and temp < 25:
-        draw_icon(oled, alright_icon, 0, 0)
+        draw_icon(oled, icons.alright_icon, 0, 0)
     if hum > 60:
         if icon_toggle:
-            draw_icon(oled, rain1_icon, 0, 10)
+            draw_icon(oled, icons.rain1_icon, 0, 10)
         else:
-            draw_icon(oled, rain2_icon, 0, 10)
+            draw_icon(oled, icons.rain2_icon, 0, 10)
     if hum < 40:
         if icon_toggle:
-            draw_icon(oled, ball1_icon, 0, 10)
+            draw_icon(oled, icons.ball1_icon, 0, 10)
         else:
-            draw_icon(oled, ball2_icon, 0, 10)
+            draw_icon(oled, icons.ball2_icon, 0, 10)
     elif 40 < hum and hum < 60 :
-        draw_icon(oled, alright_icon, 0, 10)
+        draw_icon(oled, icons.alright_icon, 0, 10)
         
     #Main text
     print("Temp: {:.1f}C".format(temp))
