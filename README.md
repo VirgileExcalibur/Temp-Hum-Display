@@ -10,18 +10,15 @@ Powered by a 128x32 oled display, it shows you :
 - Little icons to the left relating to the data collected by the sensor, I will explain that later on.
 - (And just for info, the screen refreshes every second.)
 
-![Main_Display](./images/display1.png)
+![[display1.png]]
 
 See those 2 checkmarks I talked about earlier ? They are used for something very useful.
-
 For the temperature :
 - under 21°C, it shows a freezing icon
 - above 25°C, it shows a fire icon
-
 For the humidity :
 - under 40%, it shows a desert tumbleweed icon
 - above 60%, it shows a raining icon
-
 And if the checkmarks are present, it means that the temperature / humidity are between the good limits :)
 
 Now, for the parts and the "backend" of the project. 
@@ -31,12 +28,17 @@ As for the parts, it is very simple to do, you'll only need 3 of them :
 - AHT10 Sensor / AHT20 Sensor (AHT20 Sensor not ready ! I have still not tested it, since it has a barometer function! Will come at some point...)
 - A small 128x32 oled screen. (I recommend the one I have if you don't want to mess around with the drivers, which is the ssd1306.)
 
-![Parts](./images/parts1.png)
+![[parts1.png]]
 
-So let's first talk about the wiring, you'll need 8 cables. I recommend using jumper wires like I did when starting up everything. 
+So let's first talk about the wiring, you'll need 8 cables. I recommend using jumper wires like I did when starting up everything.  (I recommend soldering the wires to the back, where you can see the writings like GP0, GP1... why you may ask ? if you put it later in a case, you won't be able to access the BOOTSEL button easely, please don't do the same error as me.)
+
 Here is the diagram I made :
 
-![Wiring_Diagram](./images/Wiring_Diagram.png)
+![[Wiring_Diagram.png]]
+And next, would be to transfer the code from the /src folder to the pi with the program of your choice. (Don't hate me, I use thonny for this, it's simple enough to use for a simple project like this).
+Just make sure that you have MicroPython installed.
 
+Lastly, thank you for reading through all of this, and enjoy this little thermometer !
 
-### I just dropped the code in the /src folder if someone wants to take a look at it !
+(INFO : I'm currently in the process of creating a 3D printed case for it, so stay tuned!)
+
