@@ -10,7 +10,7 @@ Powered by a 128x32 oled display, it shows you :
 - Little icons to the left relating to the data collected by the sensor, I will explain that later on.
 - (And just for info, the screen refreshes every second.)
 
-![[display1.png]]
+![Display](./images/display1.png)
 
 See those 2 checkmarks I talked about earlier ? They are used for something very useful.
 For the temperature :
@@ -28,13 +28,13 @@ As for the parts, it is very simple to do, you'll only need 3 of them :
 - AHT10 Sensor / AHT20 Sensor (AHT20 Sensor not ready ! I have still not tested it, since it has a barometer function! Will come at some point...)
 - A small 128x32 oled screen. (I recommend the one I have if you don't want to mess around with the drivers, which is the ssd1306.)
 
-![[parts1.png]]
+![Parts](./images/parts1.png)
 
 So let's first talk about the wiring, you'll need 8 cables. I recommend using jumper wires like I did when starting up everything.  (I recommend soldering the wires to the back, where you can see the writings like GP0, GP1... why you may ask ? if you put it later in a case, you won't be able to access the BOOTSEL button easely, please don't do the same error as me.)
 
 Here is the diagram I made :
 
-![[Wiring_Diagram.png]]
+![Wiring_Diagram](./images/Wiring_Diagram.png)
 And next, would be to transfer the code from the /src folder to the pi with the program of your choice. (Don't hate me, I use thonny for this, it's simple enough to use for a simple project like this).
 Just make sure that you have MicroPython installed.
 
